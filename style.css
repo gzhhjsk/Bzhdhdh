@@ -1,0 +1,529 @@
+/* ----- RESET ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0b1120;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    padding: 20px;
+}
+
+/* ----- CARD ----- */
+.card {
+    background: #1a2332;
+    border-radius: 32px;
+    padding: 40px 36px;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+/* ----- HUSKY ----- */
+.husky-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    height: 120px;
+}
+
+.husky {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.husky-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #d4d4d4;
+    border-radius: 50% 50% 45% 45%;
+    overflow: hidden;
+    border: 3px solid #2d3748;
+}
+
+.ear {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    background: #2d3748;
+    top: -6px;
+    border-radius: 50% 50% 0 0;
+    z-index: 0;
+}
+.ear.left { left: 6px; transform: rotate(-20deg); }
+.ear.right { right: 6px; transform: rotate(20deg); }
+.ear::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #f7b2a1;
+    border-radius: 50% 50% 0 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.eyes {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 18px;
+    z-index: 2;
+}
+.eye {
+    width: 14px;
+    height: 14px;
+    background: #1a2332;
+    border-radius: 50%;
+    position: relative;
+}
+.eye::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    right: 2px;
+}
+
+.nose {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 16px;
+    background: #2d3748;
+    border-radius: 50% 50% 40% 40%;
+    z-index: 1;
+}
+.nose::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #1a2332;
+    border-radius: 50%;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mouth {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 10px;
+    border-bottom: 2px solid #2d3748;
+    border-radius: 0 0 50% 50%;
+    z-index: 1;
+}
+
+.paws {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+}
+.paw {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: #d4d4d4;
+    border-radius: 50% 50% 30% 30%;
+    border: 2px solid #2d3748;
+    transition: 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    top: 40px;
+    opacity: 0;
+    transform: scale(0.5);
+}
+.paw.left-paw { left: 6px; }
+.paw.right-paw { right: 6px; }
+
+.password-focused .paw {
+    opacity: 1;
+    transform: scale(1) translateY(-10px);
+}
+.password-focused .paw.left-paw {
+    transform: scale(1) rotate(-10deg) translate(4px, -18px);
+}
+.password-focused .paw.right-paw {
+    transform: scale(1) rotate(10deg) translate(-4px, -18px);
+}
+
+.paw::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #b0b0b0;
+    border-radius: 50%;
+    bottom: 4px;
+    left: 6px;
+    box-shadow: 10px 0 0 #b0b0b0, 5px -8px 0 #b0b0b0;
+}
+
+/* ----- FORM ----- */
+.form-title {
+    color: #f0f4ff;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    text-align: center;
+}
+.form-sub {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 28px;
+}
+.form-sub i {
+    color: #fbbf24;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+.input-group label {
+    display: block;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+.input-group input {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    color: #f0f4ff;
+    font-size: 15px;
+    outline: none;
+    transition: 0.2s;
+}
+.input-group input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0 24px;
+    font-size: 14px;
+}
+.form-actions label {
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+.form-actions label input {
+    accent-color: #3b82f6;
+    width: 16px;
+    height: 16px;
+}
+.form-actions a {
+    color: rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.2s;
+}
+.form-actions a:hover {
+    color: #3b82f6;
+}
+
+/* ----- DOOR BUTTON ----- */
+.door-btn-wrapper {
+    margin-top: 8px;
+}
+
+.door-btn {
+    width: 100%;
+    padding: 14px;
+    background: #3b82f6;
+    border: none;
+    border-radius: 40px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.25);
+}
+.door-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 40px rgba(59, 130, 246, 0.4);
+}
+.door-btn:active {
+    transform: scale(0.97);
+}
+
+.door-scene {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 36px;
+    position: relative;
+}
+
+.door-frame {
+    position: relative;
+    width: 40px;
+    height: 36px;
+    background: #1a2332;
+    border-radius: 4px 4px 0 0;
+    border: 2px solid #2d3748;
+    border-bottom: none;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.person {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 24px;
+    transition: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 2;
+}
+.person .head {
+    width: 10px;
+    height: 10px;
+    background: #fbbf24;
+    border-radius: 50%;
+    margin: 0 auto 2px;
+}
+.person .body {
+    width: 4px;
+    height: 10px;
+    background: #fbbf24;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+.person .legs {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0;
+}
+.person .legs span {
+    width: 2px;
+    height: 6px;
+    background: #fbbf24;
+    border-radius: 1px;
+    transform: rotate(10deg);
+}
+.person .legs span:last-child {
+    transform: rotate(-10deg);
+}
+
+.door-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #2d3748;
+    border-radius: 2px 0 0 0;
+    transition: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-origin: left center;
+    z-index: 3;
+    border-right: 1px solid #1a2332;
+}
+.door-panel::after {
+    content: '';
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background: #fbbf24;
+    border-radius: 50%;
+    box-shadow: 0 6px 0 #fbbf24, 0 -6px 0 #fbbf24;
+}
+
+.door-btn.door-open .door-panel {
+    transform: perspective(200px) rotateY(-72deg);
+}
+.door-btn.door-open .person {
+    transform: translateX(18px) scale(0.8);
+    opacity: 0;
+}
+.door-btn.door-closed .person {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+}
+.door-btn.door-open .door-frame {
+    border-color: #fbbf24;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.2);
+}
+.door-btn.walking .person .legs span {
+    animation: walkLeg 0.4s linear infinite alternate;
+}
+@keyframes walkLeg {
+    0% { transform: rotate(10deg); }
+    100% { transform: rotate(-10deg); }
+}
+.door-btn.walking .person .legs span:last-child {
+    animation-delay: 0.2s;
+}
+.door-btn.out .person {
+    transform: translateX(36px) scale(0.6);
+    opacity: 0;
+}
+.door-btn.out .door-panel {
+    transform: perspective(200px) rotateY(-72deg);
+}
+
+.card.is-happy .husky-face {
+    animation: happyHusky 0.6s ease;
+}
+@keyframes happyHusky {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05) rotate(-3deg); }
+}
+.card.is-happy .form-sub {
+    color: #4ade80;
+}
+
+/* ----- SOCIAL ----- */
+.social-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 13px;
+    margin: 20px 0 16px;
+}
+.social-divider::before,
+.social-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.06);
+}
+.social-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+.social-btns button {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 40px;
+    padding: 8px 20px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+}
+.social-btns button:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+}
+.signup-link {
+    text-align: center;
+    margin-top: 18px;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 14px;
+}
+.signup-link a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+}
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* ----- TOAST ----- */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a2332;
+    color: #f0f4ff;
+    padding: 12px 28px;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    font-size: 14px;
+    font-weight: 500;
+    transition: opacity 0.4s;
+    opacity: 0;
+    pointer-events: none;
+}
+.toast.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+.toast.success {
+    border-color: #4ade80;
+}
+.toast.error {
+    border-color: #f87171;
+}
+
+/* ----- RESPONSIVE ----- */
+@media (max-width: 460px) {
+    .card {
+        padding: 28px 20px;
+    }
+    .husky-container {
+        height: 90px;
+    }
+    .husky {
+        width: 80px;
+        height: 80px;
+    }
+    .door-scene {
+        width: 50px;
+        height: 30px;
+    }
+    .door-frame {
+        width: 34px;
+        height: 30px;
+    }
+    .person {
+        transform: scale(0.8);
+    }
+}
