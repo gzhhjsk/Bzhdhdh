@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Den · ورود با هاسکی</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div class="card" id="card">
+        <!-- هاسکی -->
+        <div class="husky-container">
+            <div class="husky" id="husky">
+                <div class="husky-face">
+                    <div class="ear left"></div>
+                    <div class="ear right"></div>
+                    <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                    </div>
+                    <div class="nose"></div>
+                    <div class="mouth"></div>
+                    <div class="paws">
+                        <div class="paw left-paw"></div>
+                        <div class="paw right-paw"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- عنوان -->
+        <div class="form-title">Den</div>
+        <div class="form-sub">
+            <i class="fas fa-paw"></i> Welcome back. Your husky's keeping watch.
+        </div>
+
+        <!-- فرم -->
+        <form id="loginForm">
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="username" value="reza grootz" />
+            </div>
+            <div class="input-group" id="passwordGroup">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="••••••••" />
+            </div>
+
+            <div class="form-actions">
+                <label><input type="checkbox" checked /> Remember me</label>
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <!-- دکمه با در -->
+            <div class="door-btn-wrapper">
+                <button type="submit" class="door-btn" id="doorBtn">
+                    <span>Sign in</span>
+                    <div class="door-scene">
+                        <div class="door-frame">
+                            <div class="person">
+                                <div class="head"></div>
+                                <div class="body"></div>
+                                <div class="legs">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="door-panel"></div>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </form>
+
+        <!-- دکمه‌های اجتماعی -->
+        <div class="social-divider">or continue with</div>
+        <div class="social-btns">
+            <button><i class="fab fa-google"></i> Google</button>
+            <button><i class="fab fa-apple"></i> Apple</button>
+        </div>
+        <div class="signup-link">
+            New to Den? <a href="#">Create account</a>
+        </div>
+    </div>
+
+    <!-- توست -->
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
